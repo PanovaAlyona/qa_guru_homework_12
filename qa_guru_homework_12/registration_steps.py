@@ -2,7 +2,7 @@ import os
 import allure
 from selene import by, be, have, query
 from selene.core.command import js
-from qa_guru_homework_11.user import User
+from qa_guru_homework_12.user import User
 import calendar
 
 class RegistrationSteps:
