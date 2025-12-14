@@ -7,16 +7,14 @@ from selene import browser
 from utils import attach
 
 
-@pytest.fixture(scope="session", autouse=True)
-def load_env():
-    load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), "..", ".env"))
-
-selenoid_login = os.getenv("SELENOID_LOGIN")
-selenoid_pass = os.getenv("SELENOID_PASS")
-selenoid_url = os.getenv("SELENOID_URL")
-
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser():
+    load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), "..", ".env"))
+
+    selenoid_login = os.getenv("SELENOID_LOGIN")
+    selenoid_pass = os.getenv("SELENOID_PASS")
+    selenoid_url = os.getenv("SELENOID_URL")
+
     # Настройка capabilities для Selenoid
     options = Options()
     selenoid_capabilities = {
