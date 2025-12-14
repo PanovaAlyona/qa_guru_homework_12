@@ -9,7 +9,7 @@ from utils import attach
 
 @pytest.fixture(scope="session", autouse=True)
 def load_env():
-    load_dotenv()
+    load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), "..", ".env"))
 
 selenoid_login = os.getenv("SELENOID_LOGIN")
 selenoid_pass = os.getenv("SELENOID_PASS")
